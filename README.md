@@ -1,4 +1,4 @@
-# Telecom Customer Churn Prediction - Day 1
+# Telecom Customer Churn Prediction
 
 ## 1. Project Overview
 This project explores customer churn in a telecom company. The goal is to analyze customer behavior, identify patterns associated with churn, and build a model that predicts which customers are likely to leave.
