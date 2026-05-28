@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     MODEL_PATH: str = "app/models/best_model.pkl"
     SCALER_PATH: str = "app/models/scaler.pkl"
     FEATURES_PATH: str = "app/models/features_top10.pkl"
-    API_KEY: str = "supersecretapikey123"
+    API_KEY: str
     ALLOWED_ORIGINS: str = "http://localhost:3000"
     ENVIRONMENT: str = "development"
     PORT: int = 8000

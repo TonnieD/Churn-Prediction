@@ -7,7 +7,14 @@ export async function POST(request: Request) {
 
     // Load configs from server environment variables
     const backendUrl = process.env.BACKEND_API_URL || "http://localhost:8000";
-    const apiKey = process.env.API_KEY || "supersecretapikey123";
+    const apiKey = process.env.API_KEY;
+
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "Server Configuration Error: API_KEY environment variable is not set." },
+        { status: 500 }
+      );
+    }
 
     // Call FastAPI backend securely
     const response = await fetch(`${backendUrl}/predict`, {
