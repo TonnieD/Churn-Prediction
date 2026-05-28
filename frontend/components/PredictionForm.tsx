@@ -61,17 +61,17 @@ export function PredictionForm({ onSuccess, onError, onStartLoading, loading }: 
   };
 
   return (
-    <Card className="w-full border border-slate-800 bg-slate-950/60 backdrop-blur-xl shadow-2xl">
-      <CardHeader>
+    <Card className="w-full border border-slate-900 bg-slate-950/70 backdrop-blur-2xl shadow-2xl transition-all duration-500 hover:border-violet-500/30 hover:shadow-[0_0_50px_rgba(139,92,246,0.08)]">
+      <CardHeader className="border-b border-slate-900/60 pb-5">
         <CardTitle className="text-2xl font-extrabold text-white flex items-center space-x-2">
           <span>📉</span>
           <span>Customer Insights Form</span>
         </CardTitle>
-        <CardDescription className="text-slate-400">
+        <CardDescription className="text-slate-400 text-xs">
           Enter subscription parameters to evaluate the risk of user cancellation.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-6">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           
           {/* Section 1: Account Details */}

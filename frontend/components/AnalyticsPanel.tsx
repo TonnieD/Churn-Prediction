@@ -139,15 +139,15 @@ export function AnalyticsPanel() {
         
         {/* Left Toggles Panel */}
         <div className="lg:col-span-4 space-y-3">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 px-2 mb-1">Select Churn Driver</h3>
+          <h3 className="text-[10px] font-bold uppercase tracking-widest text-slate-500 px-2 mb-1.5">Select Churn Driver</h3>
           
           {/* Button: Contract */}
           <button
             onClick={() => setSelectedDriver("contract")}
-            className={`w-full text-left p-3.5 rounded-xl border transition-all duration-300 flex items-center space-x-3 ${
+            className={`w-full text-left p-3.5 rounded-xl border transition-all duration-300 flex items-center space-x-3 focus:outline-none ${
               selectedDriver === "contract"
-                ? "bg-violet-500/10 border-violet-500/50 text-white shadow-[0_0_15px_rgba(139,92,246,0.1)]"
-                : "bg-slate-950/40 border-slate-900 text-slate-400 hover:bg-slate-900/30 hover:border-slate-850 hover:text-white"
+                ? "bg-violet-500/15 border-violet-500/60 text-violet-250 shadow-[0_0_20px_rgba(139,92,246,0.2)]"
+                : "bg-slate-950/40 border-slate-900 text-slate-450 hover:bg-slate-900/30 hover:border-slate-800 hover:text-white"
             }`}
           >
             <span className="text-lg">📅</span>
@@ -160,10 +160,10 @@ export function AnalyticsPanel() {
           {/* Button: Internet */}
           <button
             onClick={() => setSelectedDriver("internet")}
-            className={`w-full text-left p-3.5 rounded-xl border transition-all duration-300 flex items-center space-x-3 ${
+            className={`w-full text-left p-3.5 rounded-xl border transition-all duration-300 flex items-center space-x-3 focus:outline-none ${
               selectedDriver === "internet"
-                ? "bg-violet-500/10 border-violet-500/50 text-white shadow-[0_0_15px_rgba(139,92,246,0.1)]"
-                : "bg-slate-950/40 border-slate-900 text-slate-400 hover:bg-slate-900/30 hover:border-slate-850 hover:text-white"
+                ? "bg-violet-500/15 border-violet-500/60 text-violet-250 shadow-[0_0_20px_rgba(139,92,246,0.2)]"
+                : "bg-slate-950/40 border-slate-900 text-slate-450 hover:bg-slate-900/30 hover:border-slate-800 hover:text-white"
             }`}
           >
             <span className="text-lg">⚡</span>
@@ -176,10 +176,10 @@ export function AnalyticsPanel() {
           {/* Button: Tenure */}
           <button
             onClick={() => setSelectedDriver("tenure")}
-            className={`w-full text-left p-3.5 rounded-xl border transition-all duration-300 flex items-center space-x-3 ${
+            className={`w-full text-left p-3.5 rounded-xl border transition-all duration-300 flex items-center space-x-3 focus:outline-none ${
               selectedDriver === "tenure"
-                ? "bg-violet-500/10 border-violet-500/50 text-white shadow-[0_0_15px_rgba(139,92,246,0.1)]"
-                : "bg-slate-950/40 border-slate-900 text-slate-400 hover:bg-slate-900/30 hover:border-slate-850 hover:text-white"
+                ? "bg-violet-500/15 border-violet-500/60 text-violet-250 shadow-[0_0_20px_rgba(139,92,246,0.2)]"
+                : "bg-slate-950/40 border-slate-900 text-slate-450 hover:bg-slate-900/30 hover:border-slate-800 hover:text-white"
             }`}
           >
             <span className="text-lg">⏳</span>
@@ -192,10 +192,10 @@ export function AnalyticsPanel() {
           {/* Button: Streaming */}
           <button
             onClick={() => setSelectedDriver("streaming")}
-            className={`w-full text-left p-3.5 rounded-xl border transition-all duration-300 flex items-center space-x-3 ${
+            className={`w-full text-left p-3.5 rounded-xl border transition-all duration-300 flex items-center space-x-3 focus:outline-none ${
               selectedDriver === "streaming"
-                ? "bg-violet-500/10 border-violet-500/50 text-white shadow-[0_0_15px_rgba(139,92,246,0.1)]"
-                : "bg-slate-950/40 border-slate-900 text-slate-400 hover:bg-slate-900/30 hover:border-slate-850 hover:text-white"
+                ? "bg-violet-500/15 border-violet-500/60 text-violet-250 shadow-[0_0_20px_rgba(139,92,246,0.2)]"
+                : "bg-slate-950/40 border-slate-900 text-slate-450 hover:bg-slate-900/30 hover:border-slate-800 hover:text-white"
             }`}
           >
             <span className="text-lg">🎬</span>
@@ -211,7 +211,7 @@ export function AnalyticsPanel() {
         <div className="lg:col-span-8 space-y-6">
           
           {/* Main Visualizer Card */}
-          <Card className="border border-slate-800 bg-slate-950/40 backdrop-blur-xl shadow-2xl">
+          <Card className="border border-slate-900 bg-slate-950/70 backdrop-blur-2xl shadow-2xl transition-all duration-500 hover:border-violet-500/30 hover:shadow-[0_0_50px_rgba(139,92,246,0.08)]">
             <CardHeader className="border-b border-slate-900/60 pb-5">
               <CardTitle className="text-xl font-extrabold text-white flex items-center space-x-3">
                 <span>🎯</span>

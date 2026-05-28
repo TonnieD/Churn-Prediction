@@ -39,44 +39,42 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 relative z-10">
         
         {/* Dashboard Header */}
-        <header className="mb-8 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-900 pb-6">
+        <header className="mb-8 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-900/60 pb-6">
           <div className="space-y-2">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 drop-shadow-[0_0_30px_rgba(167,139,250,0.15)] select-none">
               Telecom Customer Churn Dashboard
             </h1>
             <p className="text-slate-400 max-w-2xl text-sm md:text-base">
               Predict customer cancellation risk instantly using advanced ML classification. Evaluate features and take retention action.
             </p>
           </div>
-          <div className="mt-4 md:mt-0 flex items-center space-x-2 bg-slate-900/60 border border-slate-800 rounded-2xl px-4 py-2 self-center md:self-auto">
+          <div className="mt-4 md:mt-0 flex items-center space-x-2 bg-slate-900/60 border border-slate-800 rounded-2xl px-4 py-2 self-center md:self-auto shadow-[0_0_15px_rgba(16,185,129,0.05)]">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-xs font-bold text-slate-300 uppercase tracking-widest">Model Online (v1.0)</span>
           </div>
         </header>
 
         {/* Tab Selection Switcher */}
-        <div className="flex border-b border-slate-900 mb-8 max-w-md mx-auto md:mx-0">
+        <div className="flex border-b border-slate-900 mb-8 max-w-md mx-auto md:mx-0 bg-slate-950/20 p-1 rounded-xl border border-slate-900/40 backdrop-blur-sm">
           <button
             onClick={() => setActiveTab("predictor")}
-            className={`flex-1 pb-4 text-sm font-bold uppercase tracking-wider transition-all duration-355 relative focus:outline-none ${
-              activeTab === "predictor" ? "text-violet-400 font-extrabold" : "text-slate-500 hover:text-slate-300"
+            className={`flex-1 pb-3 pt-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg focus:outline-none ${
+              activeTab === "predictor" 
+                ? "text-violet-300 font-extrabold bg-violet-500/10 shadow-[0_0_15px_rgba(139,92,246,0.15)] border border-violet-500/20" 
+                : "text-slate-500 hover:text-slate-300 hover:bg-slate-900/20"
             }`}
           >
             🔮 Predict Churn
-            {activeTab === "predictor" && (
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-violet-400 shadow-[0_0_12px_#a78bfa] animate-in slide-in-from-left duration-200" />
-            )}
           </button>
           <button
             onClick={() => setActiveTab("analytics")}
-            className={`flex-1 pb-4 text-sm font-bold uppercase tracking-wider transition-all duration-355 relative focus:outline-none ${
-              activeTab === "analytics" ? "text-violet-400 font-extrabold" : "text-slate-500 hover:text-slate-300"
+            className={`flex-1 pb-3 pt-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg focus:outline-none ${
+              activeTab === "analytics" 
+                ? "text-violet-300 font-extrabold bg-violet-500/10 shadow-[0_0_15px_rgba(139,92,246,0.15)] border border-violet-500/20" 
+                : "text-slate-500 hover:text-slate-300 hover:bg-slate-900/20"
             }`}
           >
             📊 Dataset Analytics
-            {activeTab === "analytics" && (
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-violet-400 shadow-[0_0_12px_#a78bfa] animate-in slide-in-from-right duration-200" />
-            )}
           </button>
         </div>
 
