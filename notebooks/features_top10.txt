@@ -1,0 +1,1 @@
+['tenure', 'MonthlyCharges', 'MultipleLines_Yes', 'InternetService_Fiber optic', 'StreamingTV_No internet service', 'StreamingTV_Yes', 'StreamingMovies_No internet service', 'StreamingMovies_Yes', 'Contract_One year', 'Contract_Two year']

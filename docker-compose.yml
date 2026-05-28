@@ -1,0 +1,32 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=app/models/best_model.pkl
+      - SCALER_PATH=app/models/scaler.pkl
+      - FEATURES_PATH=app/models/features_top10.pkl
+      - API_KEY=supersecretapikey123
+      - ALLOWED_ORIGINS=http://localhost:3000
+      - ENVIRONMENT=production
+      - PORT=8000
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - BACKEND_API_URL=http://backend:8000
+      - API_KEY=supersecretapikey123
+    depends_on:
+      - backend
+    restart: always

@@ -4,13 +4,13 @@ import pandas as pd
 import numpy as np
 
 # Load model, scaler, and top 10 features
-with open("best_model.pkl", "rb") as f:
+with open("models/best_model.pkl", "rb") as f:
     model = pickle.load(f)
 
-with open("scaler.pkl", "rb") as f:
+with open("models/scaler.pkl", "rb") as f:
     scaler = pickle.load(f)
 
-with open("features_top10.pkl", "rb") as f:
+with open("models/features_top10.pkl", "rb") as f:
     feature_names = pickle.load(f)
 
 st.title("📉 Telecom Churn Prediction App")
