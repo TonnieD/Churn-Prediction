@@ -5,13 +5,21 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    // Load configs from server environment variables
-    const backendUrl = process.env.BACKEND_API_URL || "http://localhost:8000";
+    // 1. Dynamically resolve host domain to construct absolute URLs on the server
+    const host = request.headers.get("host") || "localhost:3000";
+    const protocol = host.includes("localhost") ? "http" : "https";
+
+    // 2. Determine default backend (localhost:8000 for local dev, or absolute Vercel Service URL in production)
+    const defaultBackendUrl = host.includes("localhost")
+      ? "http://localhost:8000"
+      : `${protocol}://${host}/_/backend`;
+
+    const backendUrl = process.env.BACKEND_API_URL || defaultBackendUrl;
     const apiKey = process.env.API_KEY;
 
     if (!apiKey) {
       return NextResponse.json(
-        { error: "Server Configuration Error: API_KEY environment variable is not set." },
+        { error: "Server Configuration Error: API_KEY environment variable is not configured." },
         { status: 500 }
       );
     }
