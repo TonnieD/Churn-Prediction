@@ -14,11 +14,6 @@ export async function POST(request: Request) {
 
     const apiKey = process.env.API_KEY;
 
-    console.log(`[Proxy POST] Request headers host: "${host}"`);
-    console.log(`[Proxy POST] Final resolved backendUrl: "${backendUrl}"`);
-    console.log(`[Proxy POST] API Key present in env: ${!!apiKey}`);
-    console.log(`[Proxy POST] API Key length: ${apiKey?.length}`);
-    console.log(`[Proxy POST] API Key first 3: "${apiKey?.substring(0, 3)}"`);
 
     if (!apiKey) {
       console.error("[Proxy POST] Error: API_KEY environment variable is missing!");
