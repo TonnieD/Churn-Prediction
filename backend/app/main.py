@@ -68,6 +68,15 @@ def health_check():
         "model_loaded": _model is not None,
     }
 
+@app.get("/debug-env")
+def debug_env():
+    return {
+        "api_key_set": bool(settings.API_KEY),
+        "api_key_length": len(settings.API_KEY) if settings.API_KEY else 0,
+        "api_key_first3": settings.API_KEY[:3] if settings.API_KEY else "NONE",
+        "environment": settings.ENVIRONMENT,
+    }
+
 
 @app.post("/predict", response_model=PredictionResponse)
 def predict(request: PredictionRequest, api_key: str = Depends(validate_api_key)):
