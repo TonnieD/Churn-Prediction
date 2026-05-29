@@ -8,11 +8,10 @@ export async function POST(request: Request) {
     const host = request.headers.get("host") || "localhost:3000";
     const protocol = host.includes("localhost") ? "http" : "https";
 
-    const defaultBackendUrl = host.includes("localhost")
+    const backendUrl = host.includes("localhost")
       ? "http://localhost:8000"
-      : "https://churn-prediction-lemon-gamma.vercel.app/_/backend";
+      : process.env.BACKEND_API_URL || `${protocol}://${host}/_/backend`;
 
-    const backendUrl = process.env.BACKEND_URL || process.env.BACKEND_API_URL || defaultBackendUrl;
     const apiKey = process.env.API_KEY;
 
     console.log(`[Proxy POST] Request headers host: "${host}"`);
@@ -42,6 +41,17 @@ export async function POST(request: Request) {
     });
 
     console.log(`[Proxy POST] Backend response status code: ${response.status}`);
+
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.includes("application/json")) {
+      const text = await response.text();
+      console.error(`[Proxy POST] Non-JSON response from backend: ${text.substring(0, 200)}`);
+      return NextResponse.json(
+        { error: "Backend returned an unexpected response" },
+        { status: 502 }
+      );
+    }
+
     const data = await response.json();
 
     if (!response.ok) {
