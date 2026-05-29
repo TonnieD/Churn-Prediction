@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
     const defaultBackendUrl = host.includes("localhost")
       ? "http://localhost:8000"
-      : `${protocol}://${host}/_/backend`;
+      : "https://churn-prediction-lemon-gamma.vercel.app/_/backend";
 
     const backendUrl = process.env.BACKEND_URL || process.env.BACKEND_API_URL || defaultBackendUrl;
     const apiKey = process.env.API_KEY;
