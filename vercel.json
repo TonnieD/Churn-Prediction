@@ -12,10 +12,5 @@
       "framework": "fastapi",
       "entrypoint": "app/main.py"
     }
-  },
-  "functions": {
-    "backend/app/main.py": {
-      "runtime": "python3.11"
-    }
   }
 }
