@@ -5,11 +5,9 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    // 1. Dynamically resolve host domain to construct absolute URLs on the server
     const host = request.headers.get("host") || "localhost:3000";
     const protocol = host.includes("localhost") ? "http" : "https";
 
-    // 2. Determine default backend (localhost:8000 for local dev, or absolute Vercel Service URL in production)
     const defaultBackendUrl = host.includes("localhost")
       ? "http://localhost:8000"
       : `${protocol}://${host}/_/backend`;
@@ -18,21 +16,19 @@ export async function POST(request: Request) {
     const apiKey = process.env.API_KEY;
 
     console.log(`[Proxy POST] Request headers host: "${host}"`);
-    console.log(`[Proxy POST] Protocol: "${protocol}"`);
-    console.log(`[Proxy POST] Environment BACKEND_URL: "${process.env.BACKEND_URL || ''}"`);
-    console.log(`[Proxy POST] Environment BACKEND_API_URL: "${process.env.BACKEND_API_URL || ''}"`);
     console.log(`[Proxy POST] Final resolved backendUrl: "${backendUrl}"`);
     console.log(`[Proxy POST] API Key present in env: ${!!apiKey}`);
+    console.log(`[Proxy POST] API Key length: ${apiKey?.length}`);
+    console.log(`[Proxy POST] API Key first 3: "${apiKey?.substring(0, 3)}"`);
 
     if (!apiKey) {
-      console.error("[Proxy POST] Error: API_KEY environment variable is missing on Next.js server!");
+      console.error("[Proxy POST] Error: API_KEY environment variable is missing!");
       return NextResponse.json(
-        { error: "Server Configuration Error: API_KEY environment variable is not configured." },
+        { error: "Server Configuration Error: API_KEY is not configured." },
         { status: 500 }
       );
     }
 
-    // Call FastAPI backend securely
     const targetUrl = `${backendUrl}/predict`;
     console.log(`[Proxy POST] Fetching backend URL: "${targetUrl}"`);
 
@@ -66,4 +62,3 @@ export async function POST(request: Request) {
     );
   }
 }
-
