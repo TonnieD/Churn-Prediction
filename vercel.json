@@ -1,16 +1,21 @@
 {
-    "$schema": "https://openapi.vercel.sh/vercel.json",
-    "experimentalServices": {
-        "frontend": {
-            "root": "frontend",
-            "routePrefix": "/",
-            "framework": "nextjs"
-        },
-        "backend": {
-            "root": "backend",
-            "routePrefix": "/_/backend",
-            "framework": "fastapi",
-            "entrypoint": "app/main.py"
-        }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "experimentalServices": {
+    "frontend": {
+      "root": "frontend",
+      "routePrefix": "/",
+      "framework": "nextjs"
+    },
+    "backend": {
+      "root": "backend",
+      "routePrefix": "/_/backend",
+      "framework": "fastapi",
+      "entrypoint": "app/main.py"
     }
+  },
+  "functions": {
+    "backend/app/main.py": {
+      "runtime": "python3.11"
+    }
+  }
 }
