@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
     const backendUrl = host.includes("localhost")
       ? "http://localhost:8000"
-      : process.env.BACKEND_API_URL || `${protocol}://${host}/_/backend`;
+      : process.env.BACKEND_API_URL || `https://${protocol}://${host}/_/backend`;
 
     const apiKey = process.env.API_KEY;
 
