@@ -9,9 +9,9 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - MODEL_PATH=app/models/best_model.pkl
-      - SCALER_PATH=app/models/scaler.pkl
-      - FEATURES_PATH=app/models/features_top10.pkl
+      - MODEL_PATH=models/best_model.pkl
+      - SCALER_PATH=models/scaler.pkl
+      - FEATURES_PATH=models/features_top10.pkl
       - API_KEY=supersecretapikey123
       - ALLOWED_ORIGINS=http://localhost:3000
       - ENVIRONMENT=production

@@ -13,7 +13,7 @@ APP_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def _resolve(relative_path: str) -> str:
     """Convert config-relative path to absolute, anchored to this file's directory."""
-    return os.path.join(APP_DIR, os.path.basename(relative_path))
+    return os.path.join(APP_DIR, relative_path)
 
 # Module-level cache — survives within a warm container instance
 _model = None

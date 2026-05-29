@@ -3,9 +3,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import List
 
 class Settings(BaseSettings):
-    MODEL_PATH: str = "app/models/best_model.pkl"
-    SCALER_PATH: str = "app/models/scaler.pkl"
-    FEATURES_PATH: str = "app/models/features_top10.pkl"
+    MODEL_PATH: str = "models/best_model.pkl"
+    SCALER_PATH: str = "models/scaler.pkl"
+    FEATURES_PATH: str = "models/features_top10.pkl"
     API_KEY: str
     ALLOWED_ORIGINS: str = "http://localhost:3000"
     ENVIRONMENT: str = "development"
